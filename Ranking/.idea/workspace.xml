@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcbb32c8-705e-4569-a310-ed8103ad37c4" name="Default Changelist" comment="" />
+    <list default="true" id="fcbb32c8-705e-4569-a310-ed8103ad37c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProbabilityDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProbabilityDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RankingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RankingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Teams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Teams.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -22,6 +33,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1aH3KVEAE3pUf0Rtuxexf9mMjKw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,6 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,7 +59,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="RankingSystem" />
-      <module name="Ranking System" />
+      <module name="Ranking" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="RankingSystem" />
@@ -78,6 +91,13 @@
       <option name="presentableId" value="Default" />
       <updated>1586378628015</updated>
       <workItem from="1586378629270" duration="11744000" />
+      <workItem from="1586399342177" duration="50000" />
+      <workItem from="1586408807910" duration="74000" />
+      <workItem from="1586409590376" duration="267000" />
+      <workItem from="1586456716902" duration="5000" />
+      <workItem from="1586456736742" duration="21000" />
+      <workItem from="1586471846614" duration="2984000" />
+      <workItem from="1586639914604" duration="21260000" />
     </task>
     <servers />
   </component>
@@ -89,71 +109,79 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1586378636435" />
+    <state x="485" y="71" key="#RankingSystem" timestamp="1586399368307">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="71" key="#RankingSystem/0.0.1536.824@0.0.1536.824" timestamp="1586399368307" />
     <state x="223" y="50" width="1089" height="774" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586383778551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="50" width="1089" height="774" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586383778551" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1586385327200">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1586659232143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1586385327200" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1586659232143" />
     <state x="498" y="221" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586383774337">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="221" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586383774337" />
-    <state width="409" height="466" key="DebuggerActiveHint" timestamp="1586388062740">
+    <state width="447" height="466" key="DebuggerActiveHint" timestamp="1586665065499">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="409" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1586388062740" />
+    <state width="447" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1586665065499" />
     <state x="548" y="192" key="FileChooserDialogImpl" timestamp="1586383598736">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="192" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586383598736" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1586397942758">
+    <state width="1493" height="597" key="GridCell.Tab.0.bottom" timestamp="1586666477298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586397942758" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1586397942758">
+    <state width="1493" height="597" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586666477298" />
+    <state width="1493" height="597" key="GridCell.Tab.0.center" timestamp="1586666477298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586397942758" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1586397942758">
+    <state width="1493" height="597" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586666477298" />
+    <state width="1493" height="597" key="GridCell.Tab.0.left" timestamp="1586666477298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586397942758" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1586397942758">
+    <state width="1493" height="597" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586666477298" />
+    <state width="1493" height="597" key="GridCell.Tab.0.right" timestamp="1586666477298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586397942758" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1586397942759">
+    <state width="1493" height="597" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586666477298" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1586666477296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586397942759" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1586397942759">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586666477296" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1586666477296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586397942759" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1586397942759">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586666477296" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1586666477296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586397942759" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1586397942759">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586666477296" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1586666477296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586397942759" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586666477296" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586666929748">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586666929748" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/RankingSystem.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="1" />
+          <line>51</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/RankingSystem.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/java/Team.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
