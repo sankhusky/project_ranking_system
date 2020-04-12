@@ -4,18 +4,34 @@ import java.util.Objects;
 
 public class Team {
 
-    public Team(String name){
-        this.id = counter++;
+    public Team(String name) {
         this.name = name;
-        this.teamStats = new HashMap<Integer, ProbabilityDistribution>();
+        this.teamStats = new HashMap<String, ProbabilityDistribution>();
     }
 
-    public int getId() {
-        return id;
+    public void addRecord(String opponentTeamName, int goalDifference) {
+        ProbabilityDistribution pd = this.teamStats.get(opponentTeamName);
+        if (pd == null) {
+            this.teamStats.put(opponentTeamName, new ProbabilityDistribution());
+        }
+        this.teamStats.get(opponentTeamName).addRecord(goalDifference);
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public double avgMean() {
+        double mean = 0;
+        int count = 0;
+        for (ProbabilityDistribution pd : this.teamStats.values()) {
+            double mean2 = pd.getMean();
+            int count2 = pd.getCount();
+
+            mean = ((mean * count) + (mean2 * count2)) / (count + count2);
+            count = count + count2;
+        }
+        return mean;
+    }
+
+    public double calculateCombinedSD() {
+        return 0.0;
     }
 
     public String getName() {
@@ -26,24 +42,14 @@ public class Team {
         this.name = name;
     }
 
-    public static int getCounter() {
-        return counter;
-    }
-
-    public static void setCounter(int counter) {
-        Team.counter = counter;
-    }
-
-    public Map<Integer, ProbabilityDistribution> getTeamStats() {
+    public Map<String, ProbabilityDistribution> getTeamStats() {
         return teamStats;
     }
 
-    public void setTeamStats(Map<Integer, ProbabilityDistribution> teamStats) {
+    public void setTeamStats(Map<String, ProbabilityDistribution> teamStats) {
         this.teamStats = teamStats;
     }
 
-    private int id;
     private String name;
-    private static int counter=1;
-    private Map<Integer, ProbabilityDistribution> teamStats;
+    private Map<String, ProbabilityDistribution> teamStats;
 }
