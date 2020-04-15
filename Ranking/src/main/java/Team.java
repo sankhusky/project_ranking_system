@@ -1,6 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Team {
 
@@ -17,10 +16,14 @@ public class Team {
         this.teamStats.get(opponentTeamName).addRecord(goalDifference);
     }
 
-    public double avgMean() {
+    public  double getAvgMean(){
+        return getAvgMean(this.getTeamStats().values().stream().collect(Collectors.toList()));
+    }
+
+    public double getAvgMean(List<ProbabilityDistribution> teamsPD) {
         double mean = 0;
         int count = 0;
-        for (ProbabilityDistribution pd : this.teamStats.values()) {
+        for (ProbabilityDistribution pd : teamsPD) {
             double mean2 = pd.getMean();
             int count2 = pd.getCount();
 
@@ -28,6 +31,25 @@ public class Team {
             count = count + count2;
         }
         return mean;
+    }
+    public double getAvgSD(){
+        return getAvgSD(this.getTeamStats().values().stream().collect(Collectors.toList()));
+    }
+
+    public double getAvgSD(List<ProbabilityDistribution> teamsPD) {
+        if (teamsPD.size() == 1) {
+            ProbabilityDistribution pd = teamsPD.get(0);
+            return pd.getSD(pd.getMean());
+        }
+        double sd = 0;
+        int count = 0;
+        for (ProbabilityDistribution pd: teamsPD) {
+            double sd2= pd.getSD(pd.getMean());
+            int count2= pd.getCount();
+            sd = Math.sqrt(((count)*Math.pow(sd,2) + (count2)*Math.pow(pd.getSD(pd.getMean()),2))/(count+count2));
+            count = count+count2;
+        }
+        return sd;
     }
 
     public double calculateCombinedSD() {
@@ -50,6 +72,15 @@ public class Team {
         this.teamStats = teamStats;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     private String name;
     private Map<String, ProbabilityDistribution> teamStats;
+    private int score;
 }
