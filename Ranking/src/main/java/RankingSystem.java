@@ -8,6 +8,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RankingSystem {
+    //Sanket's PC
+    public static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
+    //Akshay's PC
+//    public static final String BASE_PATH = "C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\";
     public static void main(String args[]) {
         Teams teams = new Teams();
         Team teamA;
@@ -25,10 +29,7 @@ public class RankingSystem {
         try {
             for (String path : paths) {
 
-                // Akshay's PC
-//                Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\" + path);
-                // Sanket's PC
-                Reader in = new FileReader("D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\" + path);
+                Reader in = new FileReader(BASE_PATH + path);
                 System.out.println(path);
 
                 Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
@@ -55,10 +56,7 @@ public class RankingSystem {
         //Reading record of 2019-2020 Filling table properties
         List<TableProperty> table = new ArrayList<>();
         try {
-            //Akshay's PC
-//            Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\2019-2020.csv");
-            //Sanket's PC
-            Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\2019-2020.csv");
+            Reader in = new FileReader(BASE_PATH + "2019-2020.csv");
             Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
             int i = 1;
             for (CSVRecord record : records) {// 3 - Team A 4 Team B  5 - 6 =  GD
@@ -125,7 +123,7 @@ public class RankingSystem {
 
         //Computing results for remaining matches
         try {
-            Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\remaining.csv");
+            Reader in = new FileReader(BASE_PATH + "remaining.csv");
             Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
             for (CSVRecord record : records) {
 
@@ -191,7 +189,7 @@ public class RankingSystem {
 
         Collections.sort(table);
 
-        File file = new File("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\result.csv");
+        File file = new File(BASE_PATH + "result.csv");
         try {
             // create FileWriter object with file as parameter
             FileWriter outputfile = new FileWriter(file);

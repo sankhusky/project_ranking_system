@@ -22,7 +22,8 @@ hs_err_pid*
 # IDE files #
 *.iml
 .idea
-
+/.idea
+.idea/workspace.xml
 bin/*
 .classpath
 .project
