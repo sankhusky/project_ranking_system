@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 public class RankingSystem {
     //Sanket's PC
-    public static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
+    private static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
     //Akshay's PC
-//    public static final String BASE_PATH = "C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\";
+//    private static final String BASE_PATH = "C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\";
     public static void main(String args[]) {
         Teams teams = new Teams();
         Team teamA;

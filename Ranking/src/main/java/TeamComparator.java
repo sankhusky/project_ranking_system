@@ -48,9 +48,9 @@ public class TeamComparator {
 
     public static int roundOff(double val) {
         if (val <= 0) {
-            return (int) Math.floor(val);
-        } else {
             return (int) Math.ceil(val);
+        } else {
+            return (int) Math.floor(val);
         }
     }
 }

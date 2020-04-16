@@ -28,3 +28,4 @@ bin/*
 .classpath
 .project
 .settings
+/.idea/
