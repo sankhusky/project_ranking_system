@@ -24,7 +24,13 @@ public class RankingSystem {
         //paths.add("2019-2020.csv");
         try {
             for (String path : paths) {
-                Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\" + path);
+
+                // Akshay's PC
+//                Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\" + path);
+                // Sanket's PC
+                Reader in = new FileReader("D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\" + path);
+                System.out.println(path);
+
                 Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
                 int i = 1;
                 for (CSVRecord record : records) {// 3 - Team A 4 Team B  5 - 6 =  GD
@@ -32,7 +38,7 @@ public class RankingSystem {
                         i++;
                         continue;
                     }
-                    if (record.get(2).trim() != "" && record.get(3).trim() != "") {
+                    if (!record.get(2).trim().equals("") && !record.get(3).trim().equals("")) {
 
                         teamA = teams.getByName(record.get(2));
                         teamB = teams.getByName(record.get(3));
@@ -49,6 +55,9 @@ public class RankingSystem {
         //Reading record of 2019-2020 Filling table properties
         List<TableProperty> table = new ArrayList<>();
         try {
+            //Akshay's PC
+//            Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\2019-2020.csv");
+            //Sanket's PC
             Reader in = new FileReader("C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\2019-2020.csv");
             Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
             int i = 1;
