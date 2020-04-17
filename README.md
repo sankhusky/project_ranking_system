@@ -6,10 +6,13 @@ Contributors:
 2. Sanket Pimple
 
 ### Overview
-This project is developed to primarily determine the probability of a competing element xi winning against another
- competing element xj in a head to head match on neutral grounds. In this case, we have used the data for the English
-  Premier League (EPL) where a Football (Soccer) game season is defined by specific rules and many interesting
-   factors are involved in it.  
+This project is developed to primarily determine the probability <code>P(x<sub>i</sub>,x<sub>j</sub>)</code>of a
+ competing element <code>x<sub>i</sub></code>
+ winning against
+ another
+ competing element <code>x<sub>j</sub></code> in a head to head match on neutral grounds. In this case, we have used
+  the data for the English Premier League (EPL) where a Football (Soccer) game season is defined by specific rules
+   and many interesting factors are involved in it.  
    This project has been developed in Java version 8 and uses the following libraries build in via Maven: 
    - Apache Commons CSV
    - OpenCSV
