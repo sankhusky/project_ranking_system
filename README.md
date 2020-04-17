@@ -19,12 +19,11 @@ This project is developed to primarily determine the probability of a competing 
    <li>Clone the repository</li>
    <li>Preferably, use IntelliJ Idea to open the project folder 'Ranking'</li>
    <li>Please use JDK 8 or above</li>
-   <li>RankingSystem.java is the class with the main method. Hence, when you run the project, this file should run
-   .</li>
+   <li>RankingSystem.java is the class with the main method. Hence, when you run the project, this file should run</li>
    <li>Run the project</li>
    <li>Check the console for a prompt</li>
    <li>Please enter names of any two teams (not case sensitive) separated by a comma from the following list: 
-   <br>(Eg. _Man United,Everton_)
+   <br>(Eg. <i>Man United,Everton</i>)
    <ul>
    <li>Blackburn</li>
    <li>Wolves</li>
