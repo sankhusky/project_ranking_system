@@ -1,6 +1,8 @@
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,35 +15,34 @@ public class EPLTests {
 
     private static final String BASE_PATH = "datasets/";
     private Teams teams;
-    
+
     @Test
-    public void testTeamCompare(){
-        assertEquals( "ApproxGD"
-                ,java.util.Optional.of(3)
-                , java.util.Optional.ofNullable(teams.compareTeams("Man City", "Brighton", 1))
+    public void testTeamCompare() {
+        assertEquals("ApproxGD"
+                , java.util.Optional.of(3)
+                , java.util.Optional.ofNullable(teams.compareTeams("Man City", "Brighton"))
         );
     }
 
     @Test
-    public void reverseTeamTest(){
-        assertEquals( "SameTeamsReverse"
-                ,java.util.Optional.ofNullable(teams.compareTeams("Southampton", "Chelsea", 1))
-                , java.util.Optional.of(-1*teams.compareTeams("Chelsea", "Southampton", 1))
+    public void reverseTeamTest() {
+        assertEquals("SameTeamsReverse"
+                , java.util.Optional.ofNullable(teams.compareTeams("Southampton", "Chelsea"))
+                , java.util.Optional.of(-1 * teams.compareTeams("Chelsea", "Southampton"))
         );
     }
 
     @Test
-    public void testLiverpool(){
+    public void testLiverpool() {
         assertEquals("YNWA"
-                ,java.util.Optional.of(1)
-                , java.util.Optional.ofNullable(teams.compareTeams("Liverpool", "Tottenham", 1))
+                , java.util.Optional.of(1)
+                , java.util.Optional.ofNullable(teams.compareTeams("Liverpool", "Tottenham"))
         );
     }
-
 
 
     @Before
-    public void setUpData(){
+    public void setUpData() {
         teams = new Teams();
         Team teamA;
         Team teamB;
@@ -94,7 +95,7 @@ public class EPLTests {
                     i++;
                     continue;
                 }
-                if (record.get(2).trim() != "" && record.get(3).trim() != "") {
+                if (!record.get(2).trim().equals("") && !record.get(3).trim().equals("")) {
                     teamA = teams.getByName(record.get(2));
                     teamB = teams.getByName(record.get(3));
                     int goalDifference = Integer.parseInt(record.get(4)) - Integer.parseInt(record.get(5));
@@ -107,7 +108,7 @@ public class EPLTests {
                         if (goalDifference > 0) {
                             tbl1.setPoint(3);
                         }
-                        if(goalDifference==0){
+                        if (goalDifference == 0) {
                             tbl1.setPoint(tbl1.getPoint() + 1);
                         }
                         table.add(tbl1);
@@ -116,7 +117,7 @@ public class EPLTests {
                         if (goalDifference > 0) {
                             tbl1.setPoint(tbl1.getPoint() + 3);
                         }
-                        if(goalDifference==0){
+                        if (goalDifference == 0) {
                             tbl1.setPoint(tbl1.getPoint() + 1);
                         }
                     }
@@ -130,7 +131,7 @@ public class EPLTests {
                         if (goalDifference > 0) {
                             tbl2.setPoint(3);
                         }
-                        if(goalDifference==0){
+                        if (goalDifference == 0) {
                             tbl2.setPoint(1);
                         }
                         table.add(tbl2);
@@ -139,7 +140,7 @@ public class EPLTests {
                         if (goalDifference > 0) {
                             tbl2.setPoint(tbl2.getPoint() + 3);
                         }
-                        if(goalDifference==0){
+                        if (goalDifference == 0) {
                             tbl2.setPoint(tbl2.getPoint() + 1);
                         }
                     }

@@ -21,17 +21,13 @@ public class Teams {
      * deviation of the mean GD and probabilities to return a predicted GD value
      * @param teamNameA name of team A
      * @param teamNameB name of team B
-     * @param roundStyle Type of rounding needed for final value of predicted GD :
-     *                   If 0 => Floor-Ceiling rounding
-     *                      1=> Basic rounding to nearest integer
      * @return Approximate predicted goal difference between two given teams
      */
-    public Integer compareTeams(String teamNameA, String teamNameB, int roundStyle) {
+    public Integer compareTeams(String teamNameA, String teamNameB) {
         Team teamA = this.lstTeam.stream().filter(x -> x.getName().equalsIgnoreCase(teamNameA)).findFirst().orElse(null);
         Team teamB = this.lstTeam.stream().filter(x -> x.getName().equalsIgnoreCase(teamNameB)).findFirst().orElse(null);
         if (teamA != null && teamB != null) {
-            int gd = TeamComparator.compare(teamA, teamB, roundStyle); // Team A win or loose by what margin
-            return gd;
+            return TeamComparator.compare(teamA, teamB); // Team A win or loose by what margin
         }
         return null;
     }
