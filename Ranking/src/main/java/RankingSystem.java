@@ -255,9 +255,10 @@ public class RankingSystem {
             }
         } catch (Exception e) {
             System.out.println("Please check your input (Case Sensitive)");
+        }finally {
+            scanner.close();
         }
 
-        scanner.close();
     }
 
     private static int getMaxIndex(double[] matchProbabilities) {

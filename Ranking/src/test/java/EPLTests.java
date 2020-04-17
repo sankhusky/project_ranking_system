@@ -13,7 +13,7 @@ public class EPLTests {
 
     private static final String BASE_PATH = "datasets/";
     private Teams teams;
-    
+
     @Test
     public void testTeamCompare(){
         assertEquals( "ApproxGD"
