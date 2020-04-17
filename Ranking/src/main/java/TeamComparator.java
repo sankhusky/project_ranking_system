@@ -31,6 +31,15 @@ public class TeamComparator {
         }
     }
 
+    /**
+     * Calculates the mean-difference of the two teams or the Standard Deviation differences by comparing with a
+     * threshold to find the team most likely to win
+     * @param avgMean1
+     * @param avgSD1
+     * @param avgMean2
+     * @param avgSD2
+     * @return mean Goal-Difference between the two teams
+     */
     public static int compareByMeanSD(double avgMean1, double avgSD1, double avgMean2, double avgSD2) {
         //compare using means
         double difference = 0.0;
@@ -39,9 +48,9 @@ public class TeamComparator {
         } else { //opposite sign values
             difference = Math.abs(avgMean1) + Math.abs(avgMean2);
         }
-        if (difference > 0.3) {
+        if (difference > 0.3) { //0.3 assumed as a threshold
             return roundOff(avgMean1 - avgMean2); //high mean high chances to win
-        } else {
+        } else { //curves are very similar, need to consider SD for comparison
             return avgSD1 < avgSD2 ? roundOff(avgMean1) : roundOff(avgMean2);  //small sd high accuracy to win
         }
     }

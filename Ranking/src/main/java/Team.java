@@ -81,6 +81,7 @@ public class Team {
     }
 
     private String name;
-    private Map<String, ProbabilityDistribution> teamStats;
+    private Map<String, ProbabilityDistribution> teamStats; //key = opponent, value = probability distribution of
+    // goals against that team
     private int score;
 }

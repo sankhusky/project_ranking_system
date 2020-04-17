@@ -34,16 +34,17 @@ public class RankingSystem {
 
                 Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
                 int i = 1;
+                //iterate row-wise
                 for (CSVRecord record : records) {// 3 - Team A 4 Team B  5 - 6 =  GD
                     if (i == 1) {
                         i++;
-                        continue;
+                        continue; //omit row 1
                     }
                     if (!record.get(2).trim().equals("") && !record.get(3).trim().equals("")) {
 
-                        teamA = teams.getByName(record.get(2));
-                        teamB = teams.getByName(record.get(3));
-                        int goalDifference = Integer.parseInt(record.get(4)) - Integer.parseInt(record.get(5));
+                        teamA = teams.getByName(record.get(2)); //team A object
+                        teamB = teams.getByName(record.get(3)); //team B object
+                        int goalDifference = Integer.parseInt(record.get(4)) - Integer.parseInt(record.get(5));//full time home goal - full time away goal
 
                         teamA.addRecord(teamB.getName(), goalDifference);
                         teamB.addRecord(teamA.getName(), goalDifference * -1);

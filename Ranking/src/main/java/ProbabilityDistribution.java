@@ -1,6 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Details related to a particular opponent of a team. All the details here are about games against that
+ * opponent this instance is associated to
+ */
 public class ProbabilityDistribution {
 
     public ProbabilityDistribution() {
@@ -62,8 +66,9 @@ public class ProbabilityDistribution {
     public void setMean(double mean) {
         this.mean = mean;
     }
-    private Map<Integer, Double> probabilityOfEvent;
-    private Map<Integer, Integer> noOfTimesEventOccurred;
-    private int count;
-    private double mean;
+    private Map<Integer, Double> probabilityOfEvent; //key = GD, value = probability of getting that GD among all
+    // matches played
+    private Map<Integer, Integer> noOfTimesEventOccurred; //key = GD, value = count of matches resulting in this GD
+    private int count; //count of matches played
+    private double mean; //mean of GD of all matches played against this team, i.e. Team A vs Team B
 }
