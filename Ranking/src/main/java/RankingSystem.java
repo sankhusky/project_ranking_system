@@ -7,8 +7,8 @@ import java.util.*;
 
 public class RankingSystem {
     //Sanket's PC
-    private static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
-//    private static final String BASE_PATH = "..\\..\\..\\datasets\\";
+//    private static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
+        private static final String BASE_PATH = "datasets/";
     //Akshay's PC
 //    private static final String BASE_PATH = "C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\";
     private static final Scanner scanner = new Scanner(System.in);
@@ -220,36 +220,41 @@ public class RankingSystem {
 
         System.out.println("-------------------------Get probability of a team winning or " +
                 "losing:--------------------------");
-        System.out.println("Please enter the full names of 2 teams of your choice, comma separated:");
+        System.out.println("Please enter the full names of 2 teams of your choice, comma separated (Case Sensitive):");
         String input = scanner.nextLine();
-        if(input.contains(",")){
-            String[] teamPair = input.split(",");
-            teamPair[0] = teamPair[0].trim();
-            teamPair[1] = teamPair[1].trim();
-            Team t1 = teams.getByName(teamPair[0]);
-            double[] matchProbabilities = t1.getTeamStats().get(teamPair[1]).getGameProbabilities();
-            String ftResult = "";
-            int i = getMaxIndex(matchProbabilities);
-            if(i==0){
-                ftResult = "win";
-            }else if(i==1){
-                ftResult = "lose";
+
+        try {
+            if(input.contains(",")){
+                String[] teamPair = input.split(",");
+                teamPair[0] = teamPair[0].trim();
+                teamPair[1] = teamPair[1].trim();
+                Team t1 = teams.getByName(teamPair[0]);
+                double[] matchProbabilities = t1.getTeamStats().get(teamPair[1]).getGameProbabilities();
+                String ftResult = "";
+                int i = getMaxIndex(matchProbabilities);
+                if(i==0){
+                    ftResult = "win";
+                }else if(i==1){
+                    ftResult = "lose";
+                }else{
+                    ftResult = "draw";
+                }
+                int predictedGD = Math.abs(teams.compareTeams(teamPair[0],teamPair[1], 1));
+                System.out.println(teamPair[0] + " has following probabilities of full-time result against "+teamPair[1] + ":");
+                System.out.println("Winning:"+matchProbabilities[0]);
+                System.out.println("Losing:"+matchProbabilities[1]);
+                System.out.println("Draw:"+matchProbabilities[2]);
+                if(!ftResult.equals("draw")){
+                    System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1] + " with an" +
+                            " average goal-difference of approximately "+predictedGD);
+                }else{
+                    System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1]);
+                }
             }else{
-                ftResult = "draw";
+                System.out.println("Please enter the names in correct format.");
             }
-            int predictedGD = Math.abs(teams.compareTeams(teamPair[0],teamPair[1], 1));
-            System.out.println(teamPair[0] + " has following probabilities of full-time result against "+teamPair[1] + ":");
-            System.out.println("Winning:"+matchProbabilities[0]);
-            System.out.println("Losing:"+matchProbabilities[1]);
-            System.out.println("Draw:"+matchProbabilities[2]);
-            if(!ftResult.equals("draw")){
-                System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1] + " with an" +
-                        " approximate goal-difference of "+predictedGD);
-            }else{
-                System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1]);
-            }
-        }else{
-            System.out.println("Please enter the names in correct format.");
+        } catch (Exception e) {
+            System.out.println("Please check your input (Case Sensitive)");
         }
 
         scanner.close();
