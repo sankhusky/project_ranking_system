@@ -4,7 +4,7 @@ target
 
 # Log file
 *.log
-datasets
+#datasets
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

@@ -19,6 +19,14 @@ public class ProbabilityDistribution {
         this.noOfTimesEventOccurred.put(goalDifference, value + 1);
         this.updateProbability();
         this.mean = (this.mean*(count-1)+goalDifference)/count;
+
+        if(goalDifference ==0){
+            drawCount++;
+        }else if(goalDifference > 0){
+            winCount++;
+        }else{
+            loseCount++;
+        }
     }
 
     public double getSD(double mean){
@@ -66,9 +74,28 @@ public class ProbabilityDistribution {
     public void setMean(double mean) {
         this.mean = mean;
     }
+
+    /**
+     * Calculates the probabilities of the team winning, losing and getting a tie against the opponent
+     * @return A double array with values:
+     * at position 0 : Probability of winning
+     * at position 1 : Probability of losing
+     * at position 2 : Probability of draw
+     */
+    public double[] getGameProbabilities(){
+        double[] result = new double[3];
+        double pWin = this.winCount / this.count;
+        double pLose = this.loseCount / this.count;
+        double pDraw = this.drawCount / this.count;
+        result[0] = pWin;
+        result[1] = pLose;
+        result[2] = pDraw;
+        return result;
+    }
     private Map<Integer, Double> probabilityOfEvent; //key = GD, value = probability of getting that GD among all
     // matches played
     private Map<Integer, Integer> noOfTimesEventOccurred; //key = GD, value = count of matches resulting in this GD
     private int count; //count of matches played
     private double mean; //mean of GD of all matches played against this team, i.e. Team A vs Team B
+    private double winCount, loseCount, drawCount;
 }

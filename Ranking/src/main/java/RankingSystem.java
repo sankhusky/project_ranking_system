@@ -3,15 +3,16 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class RankingSystem {
     //Sanket's PC
     private static final String BASE_PATH = "D:\\abhyas\\sem2\\psa\\project_ranking_system\\Ranking\\datasets\\";
+//    private static final String BASE_PATH = "..\\..\\..\\datasets\\";
     //Akshay's PC
 //    private static final String BASE_PATH = "C:\\Users\\phapa\\Downloads\\EPL_Data\\datasets\\";
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String args[]) {
         Teams teams = new Teams();
         Team teamA;
@@ -131,7 +132,7 @@ public class RankingSystem {
                 if (record.get(0).trim() != "" && record.get(1).trim() != "") {
                     teamA = teams.getByName(record.get(0));
                     teamB = teams.getByName(record.get(1));
-                    Integer goalDifference = teams.compareTeams(record.get(0), record.get(1));
+                    Integer goalDifference = teams.compareTeams(record.get(0), record.get(1), 0);
                     if (goalDifference != null) {
                         TableProperty tbl1 = table.stream().filter(x -> x.getTeamName().equalsIgnoreCase(record.get(0))).findFirst().orElse(null);
                         if (tbl1 == null) {
@@ -215,7 +216,55 @@ public class RankingSystem {
         }
 
         //Test team records by name
-         System.out.println(teams.compareTeams("Chelsea", "Man United12234"));//null as team is not present
+         System.out.println(teams.compareTeams("Chelsea", "Man United12234", 0));//null as team is not present
+
+        System.out.println("-------------------------Get probability of a team winning or " +
+                "losing:--------------------------");
+        System.out.println("Please enter the full names of 2 teams of your choice, comma separated:");
+        String input = scanner.nextLine();
+        if(input.contains(",")){
+            String[] teamPair = input.split(",");
+            teamPair[0] = teamPair[0].trim();
+            teamPair[1] = teamPair[1].trim();
+            Team t1 = teams.getByName(teamPair[0]);
+            double[] matchProbabilities = t1.getTeamStats().get(teamPair[1]).getGameProbabilities();
+            String ftResult = "";
+            int i = getMaxIndex(matchProbabilities);
+            if(i==0){
+                ftResult = "win";
+            }else if(i==1){
+                ftResult = "lose";
+            }else{
+                ftResult = "draw";
+            }
+            int predictedGD = Math.abs(teams.compareTeams(teamPair[0],teamPair[1], 1));
+            System.out.println(teamPair[0] + " has following probabilities of full-time result against "+teamPair[1] + ":");
+            System.out.println("Winning:"+matchProbabilities[0]);
+            System.out.println("Losing:"+matchProbabilities[1]);
+            System.out.println("Draw:"+matchProbabilities[2]);
+            if(!ftResult.equals("draw")){
+                System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1] + " with an" +
+                        " approximate goal-difference of "+predictedGD);
+            }else{
+                System.out.println(teamPair[0] + " is most likely to "+ftResult+ " against "+ teamPair[1]);
+            }
+        }else{
+            System.out.println("Please enter the names in correct format.");
+        }
+
+        scanner.close();
+    }
+
+    private static int getMaxIndex(double[] matchProbabilities) {
+        double max = Double.MIN_VALUE;
+        int index=-1;
+        for (int i = 0; i < matchProbabilities.length; i++) {
+            if(matchProbabilities[i]>max){
+                max = matchProbabilities[i];
+                index = i;
+            }
+        }
+        return index;
     }
 }
 
