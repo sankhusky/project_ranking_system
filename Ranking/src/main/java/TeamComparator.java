@@ -5,7 +5,7 @@ public class TeamComparator {
         Map<String, ProbabilityDistribution> pd1 = t1.getTeamStats();
         Map<String, ProbabilityDistribution> pd2 = t2.getTeamStats();
         Set<String> commonOpponents;
-        if (pd1.containsKey(t2.getName()) && pd1.get(t2.getName()).getCount() > 4) { //// they have record with each other & played more than 3 matches
+        if (pd1.containsKey(t2.getName()) && pd1.get(t2.getName()).getCount() > 4) { //// they have record with each other & played more than 4 matches
             return roundOff(pd1.get(t2.getName()).getMean());
         } else if ((commonOpponents = findCommonOpponents(pd1.keySet(), pd2.keySet())).size() > 0) { // they have played against common opponents
             List<ProbabilityDistribution> lst1 = new ArrayList<>();

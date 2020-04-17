@@ -200,11 +200,12 @@ public class RankingSystem {
             CSVWriter writer = new CSVWriter(outputfile);
 
             // adding header to csv
-            String[] header = { "Team Name", "Goal Difference", "Points" };
+            String[] header = { "Rank","Team Name", "Goal Difference", "Points" };
             writer.writeNext(header);
 
+            int i=1;
             for(TableProperty tbl : table){
-                String[] data = { tbl.getTeamName(), String.valueOf(tbl.getGoalDifference()), String.valueOf(tbl.getPoint())};
+                String[] data = { String.valueOf(i++),tbl.getTeamName(), String.valueOf(tbl.getGoalDifference()), String.valueOf(tbl.getPoint())};
                 writer.writeNext(data);
             }
             // closing writer connection
