@@ -66,7 +66,7 @@ public class RankingSystem {
                     i++;
                     continue;
                 }
-                if (record.get(2).trim() != "" && record.get(3).trim() != "") {
+                if (!record.get(2).trim().equals("") && !record.get(3).trim().equals("")) {
                     teamA = teams.getByName(record.get(2));
                     teamB = teams.getByName(record.get(3));
                     int goalDifference = Integer.parseInt(record.get(4)) - Integer.parseInt(record.get(5));
@@ -129,10 +129,10 @@ public class RankingSystem {
             Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
             for (CSVRecord record : records) {
 
-                if (record.get(0).trim() != "" && record.get(1).trim() != "") {
+                if (!record.get(0).trim().equals("") && !record.get(1).trim().equals("")) {
                     teamA = teams.getByName(record.get(0));
                     teamB = teams.getByName(record.get(1));
-                    Integer goalDifference = teams.compareTeams(record.get(0), record.get(1), 0);
+                    Integer goalDifference = teams.compareTeams(record.get(0), record.get(1));
                     if (goalDifference != null) {
                         TableProperty tbl1 = table.stream().filter(x -> x.getTeamName().equalsIgnoreCase(record.get(0))).findFirst().orElse(null);
                         if (tbl1 == null) {
@@ -215,12 +215,9 @@ public class RankingSystem {
             e.printStackTrace();
         }
 
-        //Test team records by name
-         System.out.println(teams.compareTeams("Chelsea", "Man United12234", 0));//null as team is not present
-
         System.out.println("-------------------------Get probability of a team winning or " +
                 "losing:--------------------------");
-        System.out.println("Please enter the full names of 2 teams of your choice, comma separated (Case Sensitive):");
+        System.out.println("Please enter the full names of 2 teams of your choice, comma separated :");
         String input = scanner.nextLine();
 
         try {
@@ -229,8 +226,9 @@ public class RankingSystem {
                 teamPair[0] = teamPair[0].trim();
                 teamPair[1] = teamPair[1].trim();
                 Team t1 = teams.getByName(teamPair[0]);
-                double[] matchProbabilities = t1.getTeamStats().get(teamPair[1]).getGameProbabilities();
-                String ftResult = "";
+                Team t2 = teams.getByName(teamPair[1]);
+                double[] matchProbabilities = t1.getTeamStats().get(t2.getName()).getGameProbabilities();
+                String ftResult;
                 int i = getMaxIndex(matchProbabilities);
                 if(i==0){
                     ftResult = "win";
@@ -239,7 +237,7 @@ public class RankingSystem {
                 }else{
                     ftResult = "draw";
                 }
-                int predictedGD = Math.abs(teams.compareTeams(teamPair[0],teamPair[1], 1));
+                int predictedGD = Math.abs(teams.compareTeams(teamPair[0],teamPair[1]));
                 System.out.println(teamPair[0] + " has following probabilities of full-time result against "+teamPair[1] + ":");
                 System.out.println("Winning:"+matchProbabilities[0]);
                 System.out.println("Losing:"+matchProbabilities[1]);
@@ -254,7 +252,7 @@ public class RankingSystem {
                 System.out.println("Please enter the names in correct format.");
             }
         } catch (Exception e) {
-            System.out.println("Please check your input (Case Sensitive)");
+            System.out.println("Team is not present. Please check the input.");
         }finally {
             scanner.close();
         }
