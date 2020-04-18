@@ -2,8 +2,8 @@
 ## Final project for INFO 6205
 Contributors: 
 
-1. Akshay Phapale
-2. Sanket Pimple
+1. Akshay Phapale (NUID: 001316563)
+2. Sanket Pimple  (NUID: 001086416)
 
 ### Overview
 This project is developed to primarily determine the probability <code>P(x<sub>i</sub>,x<sub>j</sub>)</code>of a
