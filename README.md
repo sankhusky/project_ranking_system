@@ -72,7 +72,7 @@ This project is developed to primarily determine the probability <code>P(x<sub>i
    
   _Thank you_,  
   - Akshay Phapale (phapale.a@northeastern.edu)
-  - Sanket Pimple (pimple.s@husky.neu.edu)  
+  - Sanket Pimple (pimple.s@northeastern.edu)  
   <hr> 
   
 
