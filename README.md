@@ -1,5 +1,5 @@
 # Ranking System for English Premier League Data
-## Final project for INFO 6205
+## Final project for INFO 6205 Program Structures and Algorithms
 Contributors: 
 
 1. Akshay Phapale (NUID: 001316563)
